@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public class Main {
     /**
      * He creado los array y arrayList estaticos para poder usarlos en toda la clase main. De esta manera
-     * cuando hago las llamadas a los metodos, me ahorro poner el argumento del objeto con el que quiero trabajar
+     * cuando hago las llamadas a los metodos, me ahorro poner el argumento del objeto con el que quiero trabajar.
+     * *****PREGUNTAR SI ES BUENA PRACTICA******
      */
     static int[] array = new int[10];
     static ArrayList<Integer> numeros = new ArrayList<Integer>();
