@@ -1,6 +1,7 @@
 package com.luisdengra.tema10.Ejercicio02;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ArrayListEstadisticas implements MiInterface.IEstadisticas{
 
@@ -150,5 +151,24 @@ public class ArrayListEstadisticas implements MiInterface.IEstadisticas{
         return "ArrayListEstadisticas{" +
                 "estadistica=" + estadistica +
                 '}';
+    }
+
+    public Double modaHasMap(){
+        double num = 0;
+        int repeticiones;
+        int maxRep = 0;
+        HashMap<Double, Integer> modaMap = new HashMap<>();
+        for(int i = 0 ; i < estadistica.size() ; i++){
+
+            if(modaMap.containsKey(estadistica.get(i))){
+                repeticiones = modaMap.get(estadistica.get(i)) +1;
+                modaMap.replace(estadistica.get(i),repeticiones);
+                if(repeticiones > maxRep){
+                    maxRep = repeticiones;
+                    num = estadistica.get(i);
+                }
+            }
+        }
+        return num;
     }
 }

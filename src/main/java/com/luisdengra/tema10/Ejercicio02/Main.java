@@ -22,5 +22,6 @@ public class Main {
         System.out.printf("El máximo es: %2.2f %n", estadistica.maximo());
         System.out.printf("El sumatorio es: %2.2f %n", estadistica.sumatorio());
         System.out.printf("El moda es: %2.2f %n", estadistica.moda());
+        System.out.println(estadistica.modaHasMap());
     }
 }
