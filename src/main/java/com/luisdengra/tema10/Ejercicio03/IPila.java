@@ -1,10 +1,10 @@
 package com.luisdengra.tema10.Ejercicio03;
 
-public interface IPila<String> {
+public interface IPila<T> {
 
-    String push(String e);
-    String pop();
+    T push(T e);
+    T pop();
     int size();
-    String top();
+    T top();
     boolean isEmpty();
 }

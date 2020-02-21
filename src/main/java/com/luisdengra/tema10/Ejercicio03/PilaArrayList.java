@@ -4,18 +4,18 @@ package com.luisdengra.tema10.Ejercicio03;
 import java.util.ArrayList;
 
 
-public class PilaArrayList implements IPila<String>{
+public class PilaArrayList<T> implements IPila<T>{
 
 
-    private ArrayList<String> pila = new ArrayList<>();
+    private ArrayList<T> pila = new ArrayList<T>();
 
     @Override
     /**
      * Metodo para insertar datos a la pila.
      */
-    public String push(String dato) {
+    public T push(T dato) {
         pila.add(dato);
-        return null;
+        return dato;
     }
 
     @Override
@@ -23,8 +23,8 @@ public class PilaArrayList implements IPila<String>{
      * Este metodo es para usar el ultimo dato de la lista, vemos si no esta vacio y usamos el size-1 para la ultima
      * de la pila que estamos gastando, nos devuelve el dato que hay dentro de la lista y lo eliminamos
      */
-    public String pop(){
-        String dato = "";
+    public T pop(){
+        T dato = null; //cambiar y hacer que no devuelva un string vacio.
         if(!isEmpty()){
             dato=pila.get(pila.size()-1);
             pila.remove(pila.size()-1);
@@ -45,8 +45,8 @@ public class PilaArrayList implements IPila<String>{
     /**
      * metodo para ver el ultimo elemento de la lista introducido SIN borrarlo
      */
-    public String top() {
-        String dato = "";
+    public T top() {
+        T dato = null;
         if(!isEmpty()){
             dato=pila.get(pila.size()-1);
         }
