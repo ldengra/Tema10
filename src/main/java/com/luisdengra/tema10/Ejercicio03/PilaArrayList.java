@@ -1,16 +1,20 @@
 package com.luisdengra.tema10.Ejercicio03;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Stack;
 
-public class PilaArrayList implements IPila{
+import java.util.ArrayList;
+
+
+public class PilaArrayList implements IPila<String>{
 
 
     private ArrayList<String> pila = new ArrayList<>();
 
     @Override
-    public Object push(Object e) {
+    /**
+     * Metodo para insertar datos a la pila.
+     */
+    public String push(String dato) {
+        pila.add(dato);
         return null;
     }
 

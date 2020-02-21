@@ -6,6 +6,6 @@ public class Main {
     public static void main(String[] args) {
      PilaArrayList miPila = new PilaArrayList();
 
-     miPila.push();
+     miPila.push("hola puta");
     }
 }
