@@ -1,6 +1,8 @@
 package com.luisdengra.tema10.Ejercicio05;
 
-public class Paciente {
+import java.util.ArrayList;
+
+public class Paciente extends ArrayList {
 
     private int identificador = 0;
     private String nombre;
