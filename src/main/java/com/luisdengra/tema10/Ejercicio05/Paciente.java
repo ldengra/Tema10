@@ -7,14 +7,16 @@ public class Paciente extends ArrayList {
     private int identificador = 0;
     private String nombre;
     private String fNac;
+    private int edad;
     private char sexo = 'M';
     private float altura;
     private float peso;
 
-    public Paciente(String nombre, String fNac, char sexo, float altura, float peso) {
+    public Paciente(String nombre, String fNac, int edad, char sexo, float altura, float peso) {
         this.identificador = identificador+1;
         this.nombre = nombre;
         this.fNac = fNac;
+        this.edad = edad;
         this.sexo = sexo;
         this.altura = altura;
         this.peso = peso;
@@ -23,6 +25,11 @@ public class Paciente extends ArrayList {
     public int getIdentificador() {
         return identificador;
     }
+
+    public int getEdad() {
+        return edad;
+    }
+
 
     public String getNombre() {
         return nombre;

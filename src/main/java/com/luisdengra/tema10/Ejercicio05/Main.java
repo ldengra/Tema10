@@ -14,10 +14,17 @@ public class Main {
                     Consultas.nuevoPaciente(nuevoPaciente());
                     break;
                 case 2:
-                    //venderBicicleta();
+                    int[] mayorMenor;
+                    mayorMenor = Consultas.majorMenor();
+                    for (int i = 0 ; i <mayorMenor.length ; i++){
+                        System.out.println(mayorMenor[i]);
+                    }
                     break;
                 case 3:
-                    //consultas();
+                    int[] hombreMujer = Consultas.hombresMujeres();
+                    for (int i = 0; i < 2; i++) {
+                        System.out.println(hombreMujer[i]);
+                    }
                     break;
                 case 4:
                     //mostrarStock();
@@ -39,7 +46,7 @@ public class Main {
             System.out.println("**  CONSULTORIO DE LUIS  **");
             System.out.println("***************************");
             System.out.println("1. Añadir paciente...");
-            System.out.println("2. Consulat mayor y menor...");
+            System.out.println("2. Consultar mayor y menor...");
             System.out.println("3. Consultar sexo...");
             System.out.println("4. Consultar IMC...");
             System.out.println("5. Consultar edad.");
@@ -58,6 +65,7 @@ public class Main {
     public static Paciente nuevoPaciente(){
          String nombre;
          String fNac;
+         int edad;
          char sexo;
          float altura;
          float peso;
@@ -73,8 +81,9 @@ public class Main {
          System.out.println("Introduce el peso del paciente 'XX.X'.");
          peso = input.nextFloat();
          input.nextLine();
+         edad = Consultas.calcularEdad(fNac);
 
-         Paciente p = new Paciente(nombre, fNac, sexo, altura, peso);
+         Paciente p = new Paciente(nombre, fNac, edad, sexo, altura, peso);
 
          return p;
     }
