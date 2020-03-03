@@ -9,7 +9,6 @@ public class Diccionario {
 
     public Diccionario() {
         this.diccionario = new HashMap<>();
-
     }
 
     public void anyadirPalabra(String p1, String p2){
@@ -17,15 +16,19 @@ public class Diccionario {
     }
 
     public boolean comprobarPalabra(String p){
-
         return (diccionario.containsKey(p));
-
     }
 
     public void modificarSignificado(String p, String significado){
-
         diccionario.replace(p,significado);
+    }
 
+    public void eliminarPalabra(String p){
+        diccionario.remove(p);
+    }
+
+    public String obtenerSignificado(String p){
+        return diccionario.get(p);
     }
 
     public String toString(){

@@ -19,7 +19,15 @@ public class Main {
                 case 2:
                     modificarPalabra();
                     break;
-
+                case 3:
+                    eliminarPalabra();
+                    break;
+                case 4:
+                    consultarPalabra();
+                    break;
+                case 5:
+                    mostrarDiccionario();
+                    break;
                 case 0:
                     System.out.println("Hasta pronto!");
                     break;
@@ -40,7 +48,7 @@ public class Main {
             System.out.println("2. Modificar palabra...");
             System.out.println("3. Eliminar palabra...");
             System.out.println("4. Consultar palabra...");
-            System.out.println("5. Mostrar palabra...");
+            System.out.println("5. Mostrar diccionario...");
             System.out.println("---------------------------");
             System.out.println("0. Salir de la aplicación\n");
             System.out.println("Elija una opción: ");
@@ -87,5 +95,31 @@ public class Main {
         miDiccionario.modificarSignificado(palabra,significado);
     }
 
+    public static void eliminarPalabra(){
 
+        String palabra;
+
+        System.out.println("Introduce la palabra que quieres eliminar: ");
+        palabra = input.nextLine();
+        if (miDiccionario.comprobarPalabra(palabra)){
+            miDiccionario.eliminarPalabra(palabra);
+        }else {
+            System.out.println("La palabra no existe");
+        }
+    }
+
+    public static void consultarPalabra(){
+        String palabra;
+
+        System.out.println("Introduce la palabra que quieres consultar: ");
+        palabra = input.nextLine();
+
+        if (miDiccionario.comprobarPalabra(palabra)){
+            System.out.println(palabra + ": " + miDiccionario.obtenerSignificado(palabra));
+        }
+    }
+
+    public static void mostrarDiccionario(){
+        System.out.println(miDiccionario.toString());
+    }
 }
