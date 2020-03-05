@@ -33,12 +33,13 @@ public class Diccionario {
 
     public String toString(){
         String aux="";
-        Iterator iter = diccionario.keySet().iterator();
+        String cadena = "";
+        Iterator<String> iter = diccionario.keySet().iterator();
 
         while (iter.hasNext()){
-            aux += iter.next() + ": ";
-            aux +=  diccionario.get(iter.next()) + "\n";
+            aux = iter.next();
+            cadena += aux + ": " + diccionario.get(aux) + "\n";
         }
-        return aux;
+        return cadena;
     }
 }
