@@ -61,6 +61,10 @@ public class Main {
         return opcion;
     }
 
+    /**
+     * Metodo para añadir palabra nueva en el diccionario, se introduce una palabra y si ya existe, lanza un mensaje
+     * de que ya existe, sino te pide introducir la definicion.
+     */
     public static void nuevaPalabra(){
 
         String palabra ="";
@@ -79,6 +83,9 @@ public class Main {
         miDiccionario.anyadirPalabra(palabra, significado);
     }
 
+    /**
+     * Introduce la palabra que quiere modificar, si existe pedira el nuevo significado, sino, dira que no existe.
+     */
     public static void modificarPalabra(){
 
         String palabra="";
@@ -95,6 +102,10 @@ public class Main {
         miDiccionario.modificarSignificado(palabra,significado);
     }
 
+    /**
+     * Metodo para eliminar una palabra, introduce la palabra que quieres borrar, si existe se eliminara, sino, dira que
+     * no existe
+     */
     public static void eliminarPalabra(){
 
         String palabra;
@@ -108,6 +119,9 @@ public class Main {
         }
     }
 
+    /**
+     * metodo para consultar la palabra deseada, si no existe lo notificara
+     */
     public static void consultarPalabra(){
         String palabra;
 
@@ -119,6 +133,9 @@ public class Main {
         }
     }
 
+    /**
+     * Metodo para mostrar el diccionario entero.
+     */
     public static void mostrarDiccionario(){
         System.out.println(miDiccionario.toString());
     }
