@@ -28,6 +28,11 @@ public class Main {
                 case 5:
                     mostrarDiccionario();
                     break;
+                case 6:
+                    jugar();
+                    break;
+                case 7:
+                    //mostrarPuntuaciones();
                 case 0:
                     System.out.println("Hasta pronto!");
                     break;
@@ -49,15 +54,16 @@ public class Main {
             System.out.println("3. Eliminar palabra...");
             System.out.println("4. Consultar palabra...");
             System.out.println("5. Mostrar diccionario...");
+            System.out.println("6. Jugar");
             System.out.println("---------------------------");
             System.out.println("0. Salir de la aplicación\n");
             System.out.println("Elija una opción: ");
             opcion = Integer.parseInt(input.nextLine());
-            if(opcion < 0 || opcion > 5) {
-                System.out.println("Elija una opción del menú [0-5]");
+            if(opcion < 0 || opcion > 7) {
+                System.out.println("Elija una opción del menú [0-7]");
                 Lib.pausa();
             }
-        } while (opcion < 0 || opcion > 5);
+        } while (opcion < 0 || opcion > 7);
         return opcion;
     }
 
@@ -138,5 +144,22 @@ public class Main {
      */
     public static void mostrarDiccionario(){
         System.out.println(miDiccionario.toString());
+    }
+
+    public static void jugar(){
+        boolean fallo;
+
+        do{
+
+        }while (!fallo);
+
+    }
+
+    public static void palabrasPrueba(){
+        miDiccionario.anyadirPalabra("hola","saludo");
+        miDiccionario.anyadirPalabra("adios","despedida");
+        miDiccionario.anyadirPalabra("comer","se hace al medio dia");
+        miDiccionario.anyadirPalabra("merendar","se hace por la tarde");
+        miDiccionario.anyadirPalabra("cenar","se hace por la noche");
     }
 }
