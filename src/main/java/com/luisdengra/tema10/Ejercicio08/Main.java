@@ -130,16 +130,16 @@ public class Main {
      * metodo para consultar la palabra deseada, si no existe lo notificara
      */
     public static String consultarPalabra(String p){
-        String palabra;
+
 
         System.out.println("Introduce la palabra que quieres consultar: ");
-        palabra = input.nextLine();
+        p = input.nextLine();
 
-        if (miDiccionario.comprobarPalabra(palabra)){
-            System.out.println(palabra + ": " + miDiccionario.obtenerSignificado(palabra));
+        if (miDiccionario.comprobarPalabra(p)){
+            System.out.println(p + ": " + miDiccionario.obtenerSignificado(p));
         }
 
-        return palabra;
+        return p;
     }
 
     public static void consultarPalabra(){
