@@ -1,7 +1,7 @@
 package com.luisdengra.tema10.Ejercicio08;
 
 import com.luisdengra.tema10.Utils.Lib;
-
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
@@ -54,7 +54,8 @@ public class Main {
             System.out.println("3. Eliminar palabra...");
             System.out.println("4. Consultar palabra...");
             System.out.println("5. Mostrar diccionario...");
-            System.out.println("6. Jugar");
+            System.out.println("6. Jugar...");
+            System.out.println("7. Mostrar puntuaciones...");
             System.out.println("---------------------------");
             System.out.println("0. Salir de la aplicación\n");
             System.out.println("Elija una opción: ");
@@ -128,6 +129,19 @@ public class Main {
     /**
      * metodo para consultar la palabra deseada, si no existe lo notificara
      */
+    public static String consultarPalabra(String p){
+        String palabra;
+
+        System.out.println("Introduce la palabra que quieres consultar: ");
+        palabra = input.nextLine();
+
+        if (miDiccionario.comprobarPalabra(palabra)){
+            System.out.println(palabra + ": " + miDiccionario.obtenerSignificado(palabra));
+        }
+
+        return palabra;
+    }
+
     public static void consultarPalabra(){
         String palabra;
 
@@ -137,6 +151,7 @@ public class Main {
         if (miDiccionario.comprobarPalabra(palabra)){
             System.out.println(palabra + ": " + miDiccionario.obtenerSignificado(palabra));
         }
+
     }
 
     /**
@@ -147,12 +162,38 @@ public class Main {
     }
 
     public static void jugar(){
-        boolean fallo;
-
+        boolean acierto = true;
+        String def = "";
+        int contador = 0;
+        String palabra;
+        String adivinar;
+        int numElemento;
+        int numElementos = miDiccionario.getDiccionario().size();
         do{
+            numElemento = Lib.aleatorio(0,numElementos);
+            palabra = conseguirPalabra(numElemento);
+            System.out.println("La definicion es: " + consultarPalabra(palabra));
+            adivinar = input.nextLine().toLowerCase().trim();
+            if (adivinar.equals(palabra)){
+                contador++;
+                System.out.println("Correcto!!");
+            }else{
+                System.out.println("Incorrecto, la palabra es: " + palabra);
+                acierto = false;
+            }
+            Lib.pausa();
+            Lib.limpiarPantalla();
+        }while(acierto);
+        System.out.println("Tu puntuación es de: " + contador);
 
-        }while (!fallo);
-
+    }
+    public static String conseguirPalabra(int n){
+        String key = "";
+        Iterator<String> iter = miDiccionario.getDiccionario().keySet().iterator();
+        for (int i = 0; i < n; i++) {
+            key = iter.next();
+        }
+        return key;
     }
 
     public static void palabrasPrueba(){

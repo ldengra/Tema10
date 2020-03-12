@@ -27,6 +27,10 @@ public class Diccionario {
         diccionario.remove(p);
     }
 
+    public HashMap<String, String> getDiccionario() {
+        return diccionario;
+    }
+
     public String obtenerSignificado(String p){
         return diccionario.get(p);
     }
