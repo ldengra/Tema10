@@ -7,7 +7,7 @@ public class Empresa {
     /**
      * atributos
      */
-    ArrayList<Empleado>listaEmpleados = new ArrayList<Empleado>();
+    static ArrayList<Empleado>listaEmpleados = new ArrayList<Empleado>();
 
 
     public void casosDePrueba(){
@@ -15,7 +15,7 @@ public class Empresa {
         //Empleado eP1 = new Empleado("12345678A","Alberto","Sentí",1212,1200);
     }
 
-    public boolean existEmpleado(String dni){
+    public static boolean existEmpleado(String dni){
         String auxDni;
         for(int i = 0; i<listaEmpleados.size();i++){
             auxDni = listaEmpleados.get(i).getDni();

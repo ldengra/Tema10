@@ -4,6 +4,7 @@ import com.luisdengra.tema10.Utils.Lib;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -73,20 +74,39 @@ public class Main {
     }
 
     public static void nuevoEmpleado(){
-
+        boolean dniValido;
+        String nombre="";
+        String apellido="";
+        float salario=0;
         String dni = obtindreDNI();
-        if( ){
-
-        }
-
-        String nombre;
-        String apellido;
+        dni = calcularNIF(dni);
+        dniValido = Empresa.existEmpleado(dni);
         LocalDate fechaNacimiento = pedirFechaNacimiento();
-        System.out.println("El NIF es " + calcularNIF(dni));
+
+        do{
+            if(!dniValido){
+                System.out.println("Introduce el nombre: ");
+                nombre = input.nextLine();
+                System.out.println("Introduce el apellido: ");
+                apellido= input.nextLine();
+                System.out.println("Introduce el salario: ");
+                salario = input.nextFloat();
+                input.nextLine();
+            }else{
+                System.out.println("El empleado con "+ dni + " ya existe");
+                validado=false;
+            }
+
+        }while (!validado);
+
+        Empleado e1 = new Empleado(dni,nombre,apellido, fechaNacimiento,salario);
+
+        Empresa.listaEmpleados.add(e1);
+        System.out.println(Empresa.listaEmpleados.get(0));
     }
 
     public static String obtindreDNI() {
-        System.out.print("Indica tu DNI: ");
+        System.out.println("Indica tu DNI: ");
         return input.nextLine();
     }
 
