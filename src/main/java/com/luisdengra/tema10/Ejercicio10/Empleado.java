@@ -1,6 +1,7 @@
 package com.luisdengra.tema10.Ejercicio10;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public class Empleado {
@@ -12,7 +13,7 @@ public class Empleado {
     private String apellidos;
     private LocalDate fechaNacimiento;
     private float sueldo;
-    private ArrayList<Hijo> listaHijos;
+    private ArrayList<Hijo> listaHijos = new ArrayList<>();
 
     public Empleado(String dni, String nombre, String apellidos, LocalDate fechaNacimiento, float sueldo) {
         this.dni = dni;
@@ -46,6 +47,10 @@ public class Empleado {
         return listaHijos;
     }
 
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
     @Override
     public String toString() {
         return "Empleado{" +
@@ -57,4 +62,19 @@ public class Empleado {
                 ", listaHijos=" + listaHijos +
                 '}' + '\n';
     }
+
+    public void addHijo(Hijo h){
+        listaHijos.add(h);
+    }
+    public void borrarHijo(Hijo h){
+        listaHijos.remove(h);
+    }
+    public int getEdad(){
+        LocalDate ahora = LocalDate.now();
+        Period periodo = Period.between(fechaNacimiento, ahora);
+        int a = periodo.getYears();
+        return a;
+
+    }
+
 }

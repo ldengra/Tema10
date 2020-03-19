@@ -5,7 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Lib {
-    public static Scanner lector = new Scanner(System.in);
+    static boolean validado;
+    public static Scanner input = new Scanner(System.in);
 
     /**
      * Borra la pantalla
@@ -20,7 +21,7 @@ public class Lib {
      */
     public static void pausa() {
         System.out.println("Pulsa INTRO para continuar...");
-        lector.nextLine();
+        input.nextLine();
     }
 
     /**
@@ -108,6 +109,55 @@ public class Lib {
         int aux = vector[i];
         vector[i] = vector[j];
         vector[j] = aux;
+    }
+
+    /**
+     * Metodo para pedir DNI y validarlo con los 2 metodos que hay abajo
+     * @return Retorna el DNI completo y valido
+     */
+    public static String pedirDni(){
+        String dni;
+        do {
+            System.out.println("Introduce el número de DNI del empleado: ");
+            dni = input.nextLine().toUpperCase().trim();
+            try{
+                if (compruebaNIF(dni)){
+                    validado = true;
+                }else{
+                    validado = false;
+                    System.out.println("Letra incorrecta");
+                    Lib.pausa();
+                    Lib.limpiarPantalla();
+                }
+            }catch (NumberFormatException nfe){
+                validado = false;
+                System.out.println("Introduce un número de DNI correcto:");
+                System.out.println("Ejemplo: 54375561L");
+                Lib.pausa();
+                Lib.limpiarPantalla();
+            }
+
+        }while (!validado);
+        return dni;
+    }
+    public static boolean compruebaNIF(String nif) {
+        StringBuilder dniString = new StringBuilder();
+        // Cogemos como letra el último caracter del NIF
+        char letra = nif.charAt(nif.length()-1);
+        char c;
+        for(int i = 0; i < nif.length(); i++) {
+            // Si es un dígito lo añadimos a dniString
+            c = nif.charAt(i);
+            if(Character.isDigit(c)) {
+                dniString.append(c);
+            }
+        }
+        return letra == obtenerLetraDNI(Integer.parseInt(dniString.toString()));
+    }
+
+    public static char obtenerLetraDNI(int dni) {
+        String tabla = "TRWAGMYFPDXBNJZSQVHLCKE";
+        return tabla.charAt(dni % 23);
     }
 }
 
