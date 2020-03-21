@@ -3,7 +3,7 @@ package com.luisdengra.tema10.Ejercicio11;
 import java.util.ArrayList;
 
 public class Alumno {
-    static int nId = 1;
+    static int nId = 1000;
     private int id;
     private String nombre;
     private Grupo grupo;
@@ -37,6 +37,7 @@ public class Alumno {
         return asignaturas;
     }
 
+
     @Override
     public String toString() {
         return "Alumno{" +
@@ -44,6 +45,6 @@ public class Alumno {
                 ", nombre='" + nombre + '\'' +
                 ", grupo=" + grupo +
                 ", asignaturas=" + asignaturas +
-                '}';
+                '}'+'\n';
     }
 }

@@ -22,4 +22,13 @@ public class Asignatura {
     public Profesor getProfesor() {
         return profesor;
     }
+
+    @Override
+    public String toString() {
+        return "Asignatura{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", profesor=" + profesor +
+                '}'+'\n';
+    }
 }

@@ -22,4 +22,13 @@ public class Profesor {
     public double getSueldo() {
         return sueldo;
     }
+
+    @Override
+    public String toString() {
+        return "Profesor{" +
+                "dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", sueldo=" + sueldo +
+                '}'+'\n';
+    }
 }

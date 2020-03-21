@@ -22,4 +22,13 @@ public class Grupo {
     public Aula getAula() {
         return aula;
     }
+
+    @Override
+    public String toString() {
+        return "Grupo{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", aula=" + aula +
+                '}'+'\n';
+    }
 }

@@ -16,4 +16,12 @@ public class Aula {
     public double getM2() {
         return m2;
     }
+
+    @Override
+    public String toString() {
+        return "Aula{" +
+                "id=" + id +
+                ", m2=" + m2 +
+                '}'+'\n';
+    }
 }
